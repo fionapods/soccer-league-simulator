@@ -29,7 +29,7 @@ One of the challenges that I faced in the beggining were organizing classes and 
 | Liverpool         | Arsenal           |
  
  ```
- ### Source files- Code Structure 
+ ## Source files- Code Structure 
  
  I created three different entities;
  
@@ -73,7 +73,7 @@ league.start()
 league.end()
 league.printResults()
 ```
- ## Example of random match results
+ ### Example of random match results
  
  ```
 | Home Team         |      Score        | Foreign Team      |
