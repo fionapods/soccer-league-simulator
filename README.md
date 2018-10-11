@@ -1,4 +1,4 @@
-![](https://github.com/fionapods/Football-League/blob/master/PremierLeagueLogo.jpg)
+![premierleaguelogo](https://user-images.githubusercontent.com/32840208/46785975-bea04200-cd33-11e8-8935-27b1ee8c4a24.jpg)
 
 # Football-League
 
