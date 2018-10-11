@@ -2,9 +2,17 @@
 
 # Football-League
 
-This is my first project and it is about creating a **Football League** as an OOP example using classes in Swift. I have chosen one of the existing English Football leagues called *"Premier League"* including some of its teams to create matches of the League. I have created different matches for this League where home team and foreign team play against each other. I have also listed scores of each match and have generated the winner of the match. 
+This is my first project and it is about creating a **Football League** as an Object Oriented Programming- OOP example using classes in Swift. I have chosen one of the existing English Football leagues called *"Premier League"* including some of its teams to create matches of the League. I have randomly created different matches of this League where home team and foreign team play against each other. I have also listed scores of each match and have generated the winner of the match. 
 
-#### The idea is to match up home-teams and foreign-teams to play against each other as listed below.
+## Motivation 
+
+Considering the fact that OOP is of wide use nowdays understanding its principles is crucial in becoming a programmer. I have not only learned how to apply these concepts in code; but, also learned to organize my thoughts and how to translate them in code. Moreover, I worked on this proejct for a month so I also learned code documentation which helped me be more clear and consistent. 
+
+## Challenges 
+
+One of the challenges that I faced in the beggining were organizing classes and adding functionality. Another challenge was finding a way to randomly generate two items within one array; thereby, creating matches. Moreover, I struggled in thinking of an algorithm that would generate matches were teams would be playing against each other without repeating any of the matches (please see table below). 
+
+#### The idea was to match up home-teams and foreign-teams to play against each other as listed below.
 
 ```
 | Home Team         | Foreign Team      |
@@ -21,44 +29,34 @@ This is my first project and it is about creating a **Football League** as an OO
 | Liverpool         | Arsenal           |
  
  ```
- ### Code Structure
+ ### Source files- Code Structure 
  
  I created three different entities;
  
  1. Class Team - that has the name of the team and its winnings.
  
- 2. Class Match - that has teams and match results. I created a function called play that randomly generates team scores of the match as seen below in the code snippet below;
- 
- ```
-func play() {
-    let homeTeamScore = Int(arc4random_uniform(6))
-    let foreignTeamScore = Int(arc4random_uniform(6))     
-```
-I also created a function that returns the winner of the match played as seen in the code snippet below;
+ 2. Class Match - that has teams and match results. I created a function called play that randomly generates team scores of the match. I created a function that returns the winner of the match played using if statements to generate the winner.
 
-```
-func getWinner() -> String {
-        if homeTeamScore > foreignTeamScore {
-            homeTeam.winnings += 1
-            return homeTeam.name
-        } else if foreignTeamScore > homeTeamScore {
-            foreignTeam.winnings += 1
-            return foreignTeam.name
-        } else {
-            return "Equalizer"
+3. Class League - that holds the name of the league, its teams, matches played and scores generated from the match. I created a function that generates matches where they should play only *once* against each other. To do this I used two for loops that would randomly match-up two items within one array (please see below the following algorithm). Moreover, in order to not repeat the matches I have used conditional statements where the index of the first item and the index of the second item should no be the same (please see the code snipped written below).
+
+``` 
+ public func start() {
+        for (index, homeTeam) in teams.enumerated() {
+            for (indexx, foreignTeam) in teams.enumerated() {
+                if index != indexx && index > indexx {
+                    
+                    let matchObj = Match.init(homeTeam: homeTeam, foreignTeam: foreignTeam)
+                    matches.append(matchObj)
+                }
+            }
         }
     }
 ```
-3. Class League - that holds the name of the league, its teams, matches played and scores generated from the match. I created functions start that generates matches where they should play only once against each other. To do this I used the following algorithm;
+Moreover, class League is also responsible to print results after the league is finished. 
 
-``` 
-for (index, homeTeam) in teams.enumerated() {
-    for (indexx, foreignTeam) in teams.enumerated() {
-         if index != indexx && index > indexx {
-```
-Class League is also responsible to print results after the league is finished. 
+### Test file
 
-In the test playground I stored the teams and played the league;
+In the test playground I stored the teams in a constant called teams of type Team array and created a league ovject where the teams are passed in one of the paramaters of the league object as written below.
 
 ```
 let teams: [Team] = [
@@ -94,6 +92,5 @@ league.printResults()
 ```
  ## Built with
  
- Swift Playground
- 
- ## :]
+ Swift's Playground 
+
